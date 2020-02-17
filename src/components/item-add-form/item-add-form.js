@@ -3,13 +3,11 @@ import './item-add-form.css'
 
 export default class ItemAddForm extends Component{
 state={
-    label:"",
     contract: true,
     value:'',
 }
     onLabelChange=(e)=>{
         this.setState({
-            label:e.target.value,
             value:e.target.value
         })
     }
@@ -23,11 +21,8 @@ state={
     };
     onSubmit=(e)=>{
         e.preventDefault();
-        this.props.onItemAdded(this.state.label,);
         this.props.onItemAdded(this.state.value);
-  
         this.setState({
-            label:'',
             contract: false,
             value:'',
         })
@@ -42,27 +37,19 @@ state={
            className="form-control"
            onChange={this.onLabelChange}
            placeholder="Name"
-           value={this.state.label}
+           value={this.state.value}
              />
-             </div>
 
-             <div className="table row-cols-2">
+             </div>
+             <div className="table row-cols-1">
              <input
              name="contractor"
              type="checkbox"
              checked={this.state.contractor}
              onChange={this.onLabelChange}
-
              />
-             <span>On Contract</span>
-             </div>
 
-             <div className="table row-cols-3">
-             <input type="text"
-             className="form-control"
-             value={this.state.value}
-            onChange={this.onLabelChange}
-             />
+             <span>Contract</span>
              </div>
 
             <div className="table row-cols-4">
@@ -73,7 +60,6 @@ state={
             </select>
                 </div>
 
-                
               <div className="table row-cols-5">
            <button 
            className="btn btn-outline-secondary">

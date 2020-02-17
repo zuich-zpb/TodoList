@@ -10,6 +10,7 @@ export default class App extends Component {
     todoData: [this.createTodoItem("Pavel Zuev")]
   };
   createTodoItem(label) {
+
     return {
       label,
       id: this.maxId++
